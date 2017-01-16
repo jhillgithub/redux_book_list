@@ -1,11 +1,12 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   entry: [
     './src/index.jsx'
   ],
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, "public"),
     publicPath: '/public/',
     filename: 'bundle.js'
   },
@@ -18,19 +19,12 @@ module.exports = {
       }
     }]
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //       'process.env': {
-  //           'youtube_api_key': process.env.youtube_api_key
-  //       }
-  //   })
-  // ],
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './public/'
   },
   devtool: "inline-source-map"
 };
